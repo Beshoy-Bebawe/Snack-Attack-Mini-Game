@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float horizontalInput;
     public float verticalInput; 
     public int score = 0;
+    public  ParticleSystem explosionParticle;
     // Start is called before the first frame update
     void Start()
     {
