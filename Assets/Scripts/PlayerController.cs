@@ -9,10 +9,15 @@ public class PlayerController : MonoBehaviour
     public float horizontalInput;
     public float verticalInput; 
     public int score = 0;
+    public AudioSource playerAudio;
     public  ParticleSystem explosionParticle;
+    public AudioClip blipSound;
+    public AudioClip boomSound;
+    public ParticleSystem fireworkParticle;
     // Start is called before the first frame update
     void Start()
     {
+        playerAudio = GetComponent<AudioSource>();
         
     }
 
@@ -44,4 +49,22 @@ public class PlayerController : MonoBehaviour
 
     
     }
+    void OnTriggerEnter(Collider other)
+   {
+      if (other.gameObject.CompareTag("Bomb"))
+      {
+         explosionParticle.Play();
+         playerAudio.PlayOneShot(blipSound , 1.0f);
+
+      }
+
+        else if (other.gameObject.CompareTag("Money"))
+        {
+          fireworkParticle.Play();
+          playerAudio.PlayOneShot(boomSound, 1.0f);
+          
+
+        }
+
+    } 
 }

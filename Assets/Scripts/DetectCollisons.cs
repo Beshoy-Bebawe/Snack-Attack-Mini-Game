@@ -6,7 +6,7 @@ public class DetectCollisons : MonoBehaviour
 {
 
      public int scoreToAdd = 0; 
-
+ 
     
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,6 @@ public class DetectCollisons : MonoBehaviour
            
             PlayerController pc = other.GetComponent<PlayerController>();
             pc.score += scoreToAdd;
-            pc.explosionParticle.Play();
             Debug.Log(pc.score);
             Destroy(gameObject);
         }else
